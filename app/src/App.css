@@ -1,0 +1,205 @@
+/* App-specific styles */
+
+/* Smooth scroll behavior for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Selection color */
+::selection {
+  background: #FF4D00;
+  color: white;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid #FF4D00;
+  outline-offset: 2px;
+}
+
+/* Image loading placeholder */
+img {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+/* Prevent text selection on decorative elements */
+.decorative {
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Hardware acceleration for animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* GPU acceleration */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 768px) {
+  .text-display {
+    font-size: clamp(2.5rem, 12vw, 8rem);
+  }
+  
+  .text-heading {
+    font-size: clamp(1.5rem, 6vw, 4rem);
+  }
+  
+  .text-subheading {
+    font-size: clamp(1.25rem, 4vw, 3rem);
+  }
+}
+
+/* Hide grid lines on mobile */
+@media (max-width: 768px) {
+  .grid-lines::before {
+    background-size: calc(100% / 3) 100%;
+  }
+}
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-content {
+    animation: none !important;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Loading screen animation */
+@keyframes logoPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Work card hover overlay */
+.work-card .project-image {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-card:hover .project-image {
+  transform: scale(1.02);
+}
+
+/* Service item border animation */
+.service-item {
+  position: relative;
+}
+
+.service-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #FF4D00;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-item:hover::before {
+  width: 100%;
+}
+
+/* Testimonial card hover */
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Button magnetic effect placeholder */
+.btn-magnetic {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tag hover effect */
+.tag {
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Stat value glow effect */
+.stat-value {
+  text-shadow: 0 0 40px rgba(255, 77, 0, 0.3);
+}
+
+/* Orange accent glow */
+.orange-glow {
+  box-shadow: 0 0 60px rgba(255, 77, 0, 0.4);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #FF4D00 0%, #FF8533 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
